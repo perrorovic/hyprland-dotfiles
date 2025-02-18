@@ -1,0 +1,42 @@
+window {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-family: Ubuntu, sans-serif;
+    font-size: 14px;
+}
+
+#input {
+    background-color: #2e2e2e;
+    color: #ffffff;
+    border: none;
+    padding: 5px 12px;
+    margin: 5px;
+    border-radius: 15px;
+}
+
+#inner-box {
+    background-color: #1e1e1e;
+}
+
+#outer-box {
+    background-color: #1e1e1e;
+    margin: 8px;
+}
+
+#scroll {
+    margin: 10px;
+}
+
+#entry {
+    background-color: #2e2e2e;
+    color: #ffffff;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 2px;
+}
+
+#entry:selected {
+    background-color: #444;
+    color: #ffffff;
+}
+
