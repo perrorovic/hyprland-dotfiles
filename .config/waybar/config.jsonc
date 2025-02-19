@@ -1,14 +1,11 @@
 // -*- mode: jsonc -*-
 {
-    // "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
-    "height": 36, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
+    "spacing": 6, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
-        "hyprland/window" 
-	// "hyprland/submap",
+        "hyprland/window"
+	// "hyprland/submap"
         // "sway/scratchpad",
         // "custom/media"
     ],
@@ -20,15 +17,15 @@
         //"idle_inhibitor",
         //"network",
         //"power-profiles-daemon",
-        //"cpu",
-        //"memory",
-        //"temperature",
+        // "cpu",
+        // "memory",
+        // "temperature",
         //"backlight",
         //"keyboard-state",
         //"sway/language",
         //"battery",
         //"battery#bat2",
-        "tray",
+        // "tray",
         "pulseaudio",
         "clock"
         //"custom/power"
@@ -50,22 +47,6 @@
 		"HDMI-A-1": [1,2,3,4,5]
 	}
     },
-    // "hyprland/workspaces": {
-    //     "disable-scroll": true,
-    //     "all-outputs": true,
-    //     "warp-on-scroll": false,
-    //     "format": "{icon}",
-    //     "format-icons": {
-    //         //"1": "",
-    //         //"2": "",
-    //         //"3": "",
-    //         //"4": "",
-    //         //"5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
-    //     }
-    // },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -123,10 +104,8 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%I:%M %p}",
-	"format-alt": "{:%m-%d-%Y}"
+	"format": "{:%I:%M %p}",
+        "tooltip-format": "{:%A, %d %B %Y - %I:%M %p}"
     },
     "cpu": {
         "format": "{usage}% ",

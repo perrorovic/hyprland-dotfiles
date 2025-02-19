@@ -26,14 +26,17 @@ After those you're good to exit arch-chroot and reboot the system
 
 Rebinding keyboard keys with **keyd** package, config stored at `/etc/keyd/default.conf` and run the **keyd** service
 
-To enable default system dark theme use command, make sure **xdg-desktop-portal-gtk** service is running
-```
-gsettings set org.gnome.desktop.interface color-scheme 'perfer-dark'
-```
-
 # Hyprland Setup
 
 Hyprland are split into multiple packages:
 
 - Hyprland system config files `/.config/hypr/hyprland.conf`
-- Hyprpaper wallpaper config files `/.config/hypr/hyprpaper.conf` 
+- Hyprpaper wallpaper config files `/.config/hypr/hyprpaper.conf`
+
+# Application Setup
+
+The application that are in use
+
+- Terminal **kitty**, config files `/.config/kitty/kitty.conf`
+- Application launcher **wofi**, config folder `/.config/wofi`
+- Taskbar **waybar**, config folder `/.config/waybar`

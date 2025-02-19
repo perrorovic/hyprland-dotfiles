@@ -6,5 +6,6 @@ export XDG_CURRENT_DESKTOP=Hyprland
 export XDG_SESSION_TYPE=wayland
 export XDG_SESSION_DESKTOP=Hyprland
 export GDK_BACKEND=wayland
-export QT_STYLE_OVERRIDE=Fusion
 export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_STYLE_OVERRIDE=adwaita
+export QT_QPA_PLATFORM=wayland
