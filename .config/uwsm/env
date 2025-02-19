@@ -1,0 +1,10 @@
+# ---------- Environment Variables ----------
+# See https://wiki.hyprland.org/Configuring/Environment-variables/
+
+export GTK_THEME=Adwaita-dark
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=Hyprland
+export GDK_BACKEND=wayland
+export QT_STYLE_OVERRIDE=Fusion
+export QT_QPA_PLATFORMTHEME=qt5ct
