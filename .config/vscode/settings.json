@@ -1,0 +1,50 @@
+{
+  "workbench.colorTheme": "SynthWave '84",
+  "workbench.activityBar.location": "top",
+  "workbench.tree.enableStickyScroll": false,
+
+  "extensions.autoUpdate": false,
+  
+  "editor.fontSize": 12,
+  "editor.tabSize": 2,
+  "editor.fontFamily": "'JetbrainsMono Nerd Font','Maple Mono', monospace",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorBlinking": "phase",
+  "editor.minimap.side": "left",
+  "editor.minimap.enabled": false,
+  "editor.stickyScroll.enabled": false,
+  "editor.stickyScroll.scrollWithEditor": false,
+  "editor.smoothScrolling": true,
+  "editor.scrollbar.verticalScrollbarSize": 0,
+  "editor.cursorSurroundingLines": 10,
+  
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "security.workspace.trust.startupPrompt": "never",
+  "security.workspace.trust.enabled": false,
+  
+  "terminal.integrated.fontSize": 12,
+  "terminal.external.linuxExec": "fish",
+  "terminal.explorerKind": "both",
+  "terminal.sourceControlRepositoriesKind": "both",
+  "terminal.integrated.smoothScrolling": true,
+  
+  "telemetry.telemetryLevel": "off",
+  
+  "window.customTitleBarVisibility": "auto",
+  "window.zoomLevel": -0.5,
+
+  "vim.useSystemClipboard": true,
+  "vim.foldfix": true,
+  "vim.scrolloff": 10,
+  "vim.visualModeKeyBindings": [
+    // Repeateable indentation
+    {"before": [">"], "commands": ["editor.action.indentLines"]},
+    {"before": ["<"], "commands": ["editor.action.outdentLines"]},
+    // Moving block vertically
+    {"before": ["J"], "commands": ["editor.action.moveLinesDownAction"], "after": ["g", "v"]},
+    {"before": ["K"], "commands": ["editor.action.moveLinesUpAction"]}
+  ],
+  
+  "python.languageServer": "Jedi",
+  "explorer.confirmDelete": false,
+}

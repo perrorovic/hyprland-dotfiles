@@ -1,29 +1,29 @@
 [global]
-    font = Ubuntu 10
-    corner_radius = 10
-    frame_width = 0
-    padding = 10
-    horizontal_padding = 10
-    transparency = 1
-    separator_height = 2
-    separator_color = frame
-    origin = top-right # Can be 'top-center'
-    width = (80, 600) # Fixed width of 600px
-    height = (0, 200) # Dynamic height up to 200px
-    offset = (6, 6) # X-Y offsets
-    alignment = left
+	font = Ubuntu 10
+	corner_radius = 10
+	frame_width = 0
+	padding = 10
+	horizontal_padding = 10
+	transparency = 1
+	separator_height = 2
+	separator_color = frame
+	origin = top-right # Can be 'top-center'
+	width = (80, 600) # Fixed width of 600px
+	height = (0, 200) # Dynamic height up to 200px
+	offset = (6, 6) # X-Y offsets
+	alignment = left
 
 [urgency_low]
-    background = "#2b303b"
-    foreground = "#ffffff"
-    frame_color = "#2b303b"
+	background = "#2b303b"
+	foreground = "#ffffff"
+	frame_color = "#2b303b"
 
 [urgency_normal]
-    background = "#2b303b"
-    foreground = "#ffffff"
-    frame_color = "#2b303b"
+	background = "#2b303b"
+	foreground = "#ffffff"
+	frame_color = "#2b303b"
 
 [urgency_critical]
-    background = "#bf616a"
-    foreground = "#ffffff"
-    frame_color = "#bf616a"
+	background = "#bf616a"
+	foreground = "#ffffff"
+	frame_color = "#bf616a"
