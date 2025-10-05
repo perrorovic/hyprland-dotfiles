@@ -29,10 +29,12 @@ case "$1" in
 		;;
 	--next|-n)
 		playerctl next --player=spotify
+		sleep 0.1
 		$NOTIFICATION "Spotify Next" "$(playerctl metadata --format '{{artist}} - {{title}}' --player=spotify)"
 		;;
 	--previous|-p)
 		playerctl previous --player=spotify
+		sleep 0.1
 		$NOTIFICATION "Spotify Previous" "$(playerctl metadata --format '{{artist}} - {{title}}' --player=spotify)"
 		;;
 	--current|-c)

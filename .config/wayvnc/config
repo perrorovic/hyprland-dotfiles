@@ -1,0 +1,14 @@
+# Address and port
+address=0.0.0.0
+port=5900
+
+# Authentication
+enable_auth=false
+username=
+password=
+
+# Persistent server key
+# You need to generate the RSA keys beforehand with command below:
+# ssh-keygen -m pem -f ~/.config/wayvnc/rsa_key.pem -t rsa -N ""
+use_relative_paths=true
+rsa_private_key_file=rsa_key.pem
