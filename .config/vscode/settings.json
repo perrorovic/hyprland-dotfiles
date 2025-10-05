@@ -3,6 +3,8 @@
   "workbench.activityBar.location": "top",
   "workbench.tree.enableStickyScroll": false,
 
+  "explorer.confirmDelete": false,
+
   "extensions.autoUpdate": false,
   
   "editor.fontSize": 12,
@@ -10,13 +12,15 @@
   "editor.fontFamily": "'JetbrainsMono Nerd Font','Maple Mono', monospace",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorBlinking": "phase",
-  "editor.minimap.side": "left",
-  "editor.minimap.enabled": false,
-  "editor.stickyScroll.enabled": false,
   "editor.stickyScroll.scrollWithEditor": false,
   "editor.smoothScrolling": true,
   "editor.scrollbar.verticalScrollbarSize": 0,
   "editor.cursorSurroundingLines": 10,
+
+  "editor.minimap.enabled": true,
+  "editor.minimap.scale": 1,
+  "editor.minimap.maxColumn": 80,
+  "editor.minimap.renderCharacters": false,
   
   "security.workspace.trust.untrustedFiles": "newWindow",
   "security.workspace.trust.startupPrompt": "never",
@@ -46,5 +50,17 @@
   ],
   
   "python.languageServer": "Jedi",
-  "explorer.confirmDelete": false,
+
+  "java.jdt.ls.java.home": "/home/perrorovic/.sdkman/candidates/java/current",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-25",
+      "path": "/home/perrorovic/.sdkman/candidates/java/current",
+      "default": true
+    },
+  ],
+  "gradle.java.home": "/home/perrorovic/.sdkman/candidates/java/current",
+  "java.import.gradle.enabled": true,
+  "java.import.gradle.version": "9.1.0",
+  "java.import.gradle.home": "/home/perrorovic/.sdkman/candidates/java/current",
 }
