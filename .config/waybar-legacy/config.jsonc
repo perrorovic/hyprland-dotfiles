@@ -1,0 +1,51 @@
+{
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "spacing": 6, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": ["hyprland/window"],
+    "modules-center": ["hyprland/workspaces"],
+    "modules-right": ["pulseaudio", "clock"],
+    // Modules configuration
+    "hyprland/workspaces": {
+	"format": "{icon}",
+	"format-icons": {
+		"1": "",
+		"2": "",
+		"3": "",
+		"4": "",
+		"5": "",
+		"urgent": "", // Something pop-up
+		"active": "", // Currently in use
+		"default": "" // Other than persistent workspaces
+	},
+        "persistent-workspaces": {
+		"HDMI-A-1": [1,2,3,4,5]
+	}
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+	"format": "{:%I:%M %p}",
+        "tooltip-format": "{:%A, %d %B %Y - %I:%M %p}"
+    },
+   "pulseaudio": {
+	"scroll-step": 10, // How much scroll change the volume
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "  {volume}%",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
+}
