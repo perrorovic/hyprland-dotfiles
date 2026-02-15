@@ -1,13 +1,19 @@
 {
   "workbench.colorTheme": "SynthWave '84",
-  "workbench.activityBar.location": "top",
   "workbench.tree.enableStickyScroll": false,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "workbench.navigationControl.enabled": false,
+  "workbench.activityBar.location": "top",
+  "workbench.startupEditor": "none",
+
+  "window.customTitleBarVisibility": "auto",
+  "window.zoomLevel": -1.0,
 
   "explorer.confirmDelete": false,
-
+  "telemetry.telemetryLevel": "off",
   "extensions.autoUpdate": false,
-  
-  "editor.fontSize": 12,
+
+  "editor.fontSize": 13,
   "editor.tabSize": 2,
   "editor.fontFamily": "'JetbrainsMono Nerd Font','Maple Mono', monospace",
   "editor.cursorSmoothCaretAnimation": "on",
@@ -15,12 +21,12 @@
   "editor.stickyScroll.scrollWithEditor": false,
   "editor.smoothScrolling": true,
   "editor.scrollbar.verticalScrollbarSize": 0,
-  "editor.cursorSurroundingLines": 10,
+  "editor.cursorSurroundingLines": 12,
 
-  "editor.minimap.enabled": true,
+  "editor.minimap.enabled": false,
   "editor.minimap.scale": 1,
   "editor.minimap.maxColumn": 80,
-  "editor.minimap.renderCharacters": false,
+  "editor.minimap.renderCharacters": true,
   
   "security.workspace.trust.untrustedFiles": "newWindow",
   "security.workspace.trust.startupPrompt": "never",
@@ -32,14 +38,9 @@
   "terminal.sourceControlRepositoriesKind": "both",
   "terminal.integrated.smoothScrolling": true,
   
-  "telemetry.telemetryLevel": "off",
-  
-  "window.customTitleBarVisibility": "auto",
-  "window.zoomLevel": -0.5,
-
   "vim.useSystemClipboard": true,
   "vim.foldfix": true,
-  "vim.scrolloff": 10,
+  "vim.scrolloff": 12,
   "vim.visualModeKeyBindings": [
     // Repeateable indentation
     {"before": [">"], "commands": ["editor.action.indentLines"]},
@@ -49,7 +50,7 @@
     {"before": ["K"], "commands": ["editor.action.moveLinesUpAction"]}
   ],
   
-  "python.languageServer": "Jedi",
+  "python.languageServer": "Pylance",
 
   "java.jdt.ls.java.home": "/home/perrorovic/.sdkman/candidates/java/current",
   "java.configuration.runtimes": [
@@ -57,10 +58,21 @@
       "name": "JavaSE-25",
       "path": "/home/perrorovic/.sdkman/candidates/java/current",
       "default": true
-    },
+    }
   ],
   "gradle.java.home": "/home/perrorovic/.sdkman/candidates/java/current",
   "java.import.gradle.enabled": true,
   "java.import.gradle.version": "9.1.0",
   "java.import.gradle.home": "/home/perrorovic/.sdkman/candidates/java/current",
+
+  "remote.SSH.enableDynamicForwarding": false,
+  "remote.SSH.useLocalServer": false,
+  "remote.SSH.remotePlatform": {
+    "phiwork.peacock-chromatic.ts.net": "linux",
+    "phitc-direct": "linux"
+  },
+
+  "window.commandCenter": false,
+  "chat.agentsControl.enabled": false,
+  "extensions.ignoreRecommendations": true
 }
