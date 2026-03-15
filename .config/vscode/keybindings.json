@@ -1,6 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
-  {"key": "`", "command": "workbench.action.terminal.toggleTerminal"},
+  {"key": "ctrl+o", "command": "workbench.action.terminal.toggleTerminal"},
   {"key": "shift+space", "command": "workbench.action.quickOpen"},
   {"key": "shift+enter", "command": "workbench.action.showCommands"},
   {"key": "ctrl+=", "command": "editor.action.fontZoomIn"},

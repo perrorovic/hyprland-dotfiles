@@ -1,5 +1,4 @@
 {
-  "workbench.colorTheme": "SynthWave '84",
   "workbench.tree.enableStickyScroll": false,
   "workbench.secondarySideBar.defaultVisibility": "hidden",
   "workbench.navigationControl.enabled": false,
@@ -67,12 +66,10 @@
 
   "remote.SSH.enableDynamicForwarding": false,
   "remote.SSH.useLocalServer": false,
-  "remote.SSH.remotePlatform": {
-    "phiwork.peacock-chromatic.ts.net": "linux",
-    "phitc-direct": "linux"
-  },
+  "remote.SSH.remotePlatform": {},
 
   "window.commandCenter": false,
   "chat.agentsControl.enabled": false,
-  "extensions.ignoreRecommendations": true
+  "extensions.ignoreRecommendations": true,
+  "editor.foldingStrategy": "indentation"
 }
