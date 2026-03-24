@@ -6,7 +6,7 @@
   "workbench.startupEditor": "none",
 
   "window.customTitleBarVisibility": "auto",
-  "window.zoomLevel": -1.0,
+  "window.zoomLevel": -0.5,
 
   "explorer.confirmDelete": false,
   "telemetry.telemetryLevel": "off",
@@ -31,7 +31,7 @@
   "security.workspace.trust.startupPrompt": "never",
   "security.workspace.trust.enabled": false,
   
-  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontSize": 13,
   "terminal.external.linuxExec": "fish",
   "terminal.explorerKind": "both",
   "terminal.sourceControlRepositoriesKind": "both",
@@ -48,21 +48,10 @@
     {"before": ["J"], "commands": ["editor.action.moveLinesDownAction"], "after": ["g", "v"]},
     {"before": ["K"], "commands": ["editor.action.moveLinesUpAction"]}
   ],
-  
-  "python.languageServer": "Pylance",
-
-  "java.jdt.ls.java.home": "/home/perrorovic/.sdkman/candidates/java/current",
-  "java.configuration.runtimes": [
-    {
-      "name": "JavaSE-25",
-      "path": "/home/perrorovic/.sdkman/candidates/java/current",
-      "default": true
-    }
-  ],
-  "gradle.java.home": "/home/perrorovic/.sdkman/candidates/java/current",
-  "java.import.gradle.enabled": true,
-  "java.import.gradle.version": "9.1.0",
-  "java.import.gradle.home": "/home/perrorovic/.sdkman/candidates/java/current",
+  "vim.ignorecase": true,
+  "vim.smartcase": true,
+  "vim.easymotion": true,
+  "vim.hlsearch": true,
 
   "remote.SSH.enableDynamicForwarding": false,
   "remote.SSH.useLocalServer": false,
