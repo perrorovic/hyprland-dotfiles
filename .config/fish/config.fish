@@ -5,8 +5,9 @@ set -x EDITOR vim
 set -gx TERM xterm-256color
 
 if status is-interactive
-  if test "$XDG_SESSION_TYPE" != "tty"
+  if test "$XDG_SESSION_TYPE" != "tty" || set -q SSH_CLIENT || set -q SSH_TTY
     starship init fish | source
+    clear
   end
 end
 
