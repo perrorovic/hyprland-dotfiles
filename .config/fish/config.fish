@@ -1,7 +1,13 @@
 set -g fish_greeting
+set -x EDITOR vim
+
+# Terminal for Kitty
+set -gx TERM xterm-256color
 
 if status is-interactive
-	starship init fish | source
+  if test "$XDG_SESSION_TYPE" != "tty"
+    starship init fish | source
+  end
 end
 
 # List Directory
@@ -23,24 +29,24 @@ abbr mkdir 'mkdir -p'
 
 # Add new line after each execution on the end of command/bottom
 function postexec_newline --on-event fish_postexec
-	# $argv holds the command that just finished
-	if test "$argv[1]" != "clear"
-		echo
-	end
+  # $argv holds the command that just finished
+  if test "$argv[1]" != "clear"
+    echo
+  end
 end
 
 # Java sdkman shells
 set SDKMAN_INIT false
 function sdk
-	if test "$SDKMAN_INIT" = false
-		sdkinit
-	else
-		bass source $HOME/.sdkman/bin/sdkman-init.sh ';' sdk $argv
-	end
+  if test "$SDKMAN_INIT" = false
+    sdkinit
+  else
+    bass source $HOME/.sdkman/bin/sdkman-init.sh ';' sdk $argv
+  end
 end
 function sdkinit
-	set SDKMAN_INIT true
-	bass source $HOME/.sdkman/bin/sdkman-init.sh ';' true
-	echo "Initializing..."
-	sdk current # Show the envs
+  set SDKMAN_INIT true
+  bass source $HOME/.sdkman/bin/sdkman-init.sh ';' true
+  echo "Initializing..."
+  sdk current # Show the envs
 end
