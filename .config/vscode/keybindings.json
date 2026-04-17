@@ -5,5 +5,7 @@
   {"key": "shift+enter", "command": "workbench.action.showCommands"},
   {"key": "ctrl+=", "command": "editor.action.fontZoomIn"},
   {"key": "ctrl+-", "command": "editor.action.fontZoomOut"},
-  {"key": "ctrl+0", "command": "editor.action.fontZoomReset"}
+  {"key": "ctrl+0", "command": "editor.action.fontZoomReset"},
+  {"key": "ctrl+h", "command": "workbench.action.toggleSidebarVisibility", "when": ""},
+  {"key": "ctrl+l", "command": "workbench.action.toggleAuxiliaryBar", "when": ""}
 ]
