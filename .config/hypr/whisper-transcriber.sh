@@ -2,23 +2,31 @@
 set -e
 
 APP_NAME="Whisper Talk & Transcribe"
+MIC_SOURCE="alsa_input.usb-HP__Inc_HyperX_Virtual_Surround_Sound_00000000-00.analog-stereo"
+
 WHISPER_DIR="$HOME/.whisper.cpp"
 MODEL="$WHISPER_DIR/models/ggml-small.en.bin"
 WHISPER_BIN="$WHISPER_DIR/build/bin/whisper-cli"
-PIDFILE="/tmp/whisper-talk.pid"
-WAVFILE="/tmp/whisper-talk.wav"
+
+PIDFILE="/tmp/whisper-transcriber.pid"
+NOTIFIER_PIDFILE="/tmp/whisper-transcriber-notifier.pid"
+WAVFILE="/tmp/whisper-transcriber.wav"
+
 DEFAULT_OUTPUT="copy" #"copy" or "type"
+MAX_DURATION=300 #hard cap in seconds, recording auto-cancels after this
 TAIL_BUFFER=1.0 #seconds of audio kept after pressing transcribe
+HEARTBEAT_INTERVAL=30 #seconds between "still listening" notifications
 
 NOTIFICATION="notify-send -u low -t 2000 -r 9898"
 
 usage() {
   cat <<EOF
-Usage: $APP_NAME [--listen|--transcribe|--toggle|--status] [--copy|--type]
+Usage: $APP_NAME [--listen|--transcribe|--toggle|--cancel|--status] [--copy|--type]
 
   --listen      Start recording (replaces any existing recording)
   --transcribe  Stop recording, transcribe, output result
   --toggle      Listen if idle, transcribe if recording (default)
+  --cancel      Stop recording and discard audio (no transcription)
   --status      Print "recording" or "idle"
 
 Output (decided at transcribe time, default: $DEFAULT_OUTPUT):
@@ -34,11 +42,37 @@ for arg in "$@"; do
   case "$arg" in
     --copy) OUTPUT="copy" ;;
     --type) OUTPUT="type" ;;
-    --listen|--transcribe|--toggle|--status) ACTION="$arg" ;;
+    --listen|--transcribe|--toggle|--cancel|--status) ACTION="$arg" ;;
     -h|--help) usage ;;
     *) usage ;;
   esac
 done
+
+start_notifier() {
+  (
+    elapsed=0
+    while [ "$elapsed" -lt "$MAX_DURATION" ]; do
+      sleep "$HEARTBEAT_INTERVAL"
+      elapsed=$((elapsed + HEARTBEAT_INTERVAL))
+      if [ "$elapsed" -ge "$MAX_DURATION" ]; then
+        $NOTIFICATION "$APP_NAME" "Hard limit reached (${MAX_DURATION}s), cancelling"
+        "$0" --cancel >/dev/null 2>&1 || true
+        exit 0
+      fi
+      $NOTIFICATION "$APP_NAME" "Still listening (${elapsed}s)"
+    done
+  ) &
+  echo $! > "$NOTIFIER_PIDFILE"
+}
+
+stop_notifier() {
+  if [ -f "$NOTIFIER_PIDFILE" ]; then
+    NPID=$(cat "$NOTIFIER_PIDFILE")
+    kill "$NPID" 2>/dev/null || true
+    wait "$NPID" 2>/dev/null || true
+    rm -f "$NOTIFIER_PIDFILE"
+  fi
+}
 
 start_listen() {
   if [ -f "$PIDFILE" ]; then
@@ -46,19 +80,22 @@ start_listen() {
     kill -INT "$PID" 2>/dev/null || true
     wait "$PID" 2>/dev/null || true
     rm -f "$PIDFILE" "$WAVFILE"
+    stop_notifier
   fi
-  sox -d -r 16000 -c 1 -b 16 "$WAVFILE" 2>/dev/null &
+  parec -d "$MIC_SOURCE" --format=s16le --rate=16000 --channels=1 --file-format=wav "$WAVFILE" 2>/dev/null &
   echo $! > "$PIDFILE"
+  start_notifier
   $NOTIFICATION "$APP_NAME" "Listening..."
 }
 
 stop_transcribe() {
   if [ ! -f "$PIDFILE" ]; then
-    $NOTIFICATION "$APP_NAME" "not recording"
+    $NOTIFICATION "$APP_NAME" "Not recording"
     exit 1
   fi
   PID=$(cat "$PIDFILE")
   rm -f "$PIDFILE"
+  stop_notifier
 
   sleep "$TAIL_BUFFER"
 
@@ -94,9 +131,24 @@ stop_transcribe() {
   esac
 }
 
+cancel_recording() {
+  if [ ! -f "$PIDFILE" ]; then
+    $NOTIFICATION "$APP_NAME" "Nothing to discard..."
+    exit 1
+  fi
+  PID=$(cat "$PIDFILE")
+  rm -f "$PIDFILE"
+  stop_notifier
+  kill -INT "$PID" 2>/dev/null || true
+  wait "$PID" 2>/dev/null || true
+  rm -f "$WAVFILE"
+  $NOTIFICATION "$APP_NAME" "Stopped, nothing transcribed"
+}
+
 case "$ACTION" in
   --listen)     start_listen ;;
   --transcribe) stop_transcribe ;;
+  --cancel)     cancel_recording ;;
   --toggle)
     if [ -f "$PIDFILE" ]; then stop_transcribe; else start_listen; fi
     ;;
