@@ -1,0 +1,16 @@
+version = 2
+
+[global]
+allow_fp16 = true
+dll = "/home/perrorovic/.local/share/Steam/steamapps/common/Lossless Scaling/lsfg-vk.dll"
+log_level = "info"
+
+[[profile]]
+active_in = [ "vkcube", "lsfgvk-nrftw", "lsfgvk-blue-prince", "lsfgvk-dota2" ]
+flow_scale = 1.0
+multiplier = 4
+name = "x4perfomance"
+override_present_mode = true
+pacing_mode = "vsync"
+performance_mode = true
+preserve_swapchain_image_count = false
